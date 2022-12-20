@@ -14,8 +14,7 @@ import java.util.Map;
 public class IndexController {
 
     @GetMapping("/")
-    public String index(Model model, Authentication authentication, @AuthenticationPrincipal OAuth2User oAuth2User) {
-
+    public String index(Authentication authentication, Model model, @AuthenticationPrincipal OAuth2User oAuth2User) {
         OAuth2AuthenticationToken authenticationToken = (OAuth2AuthenticationToken) authentication;
         if (authenticationToken != null) {
             Map<String, Object> attributes = oAuth2User.getAttributes();

@@ -3,7 +3,6 @@ package security.springoauth2social;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
@@ -52,6 +51,9 @@ public class OAuth2ClientConfig {
 
     }
 
+    /**
+     * 구글은 권한 값이 이상하게 넘어와서 그것을 매핑하기 위한 Custom
+     */
     @Bean
     public GrantedAuthoritiesMapper customAuthorityMapper() {
         return new CustomAuthorityMapper();
