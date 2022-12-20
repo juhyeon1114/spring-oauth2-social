@@ -37,6 +37,9 @@ public class OAuth2ClientConfig {
                 .requestMatchers("/api/oidc").hasAnyRole("SCOPE_openid")
                 .anyRequest().authenticated();
 
+        /**
+         * UserService: 사용자 정보를 가져오는 역할을 한다.
+         */
         http.oauth2Login(httpSecurityOAuth2LoginConfigurer -> {
             httpSecurityOAuth2LoginConfigurer.userInfoEndpoint(userInfoEndpointConfig -> {
                 userInfoEndpointConfig
