@@ -23,6 +23,7 @@ public class OAuth2ClientConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         http.authorizeHttpRequests()
                 .requestMatchers("/").permitAll()
                 .anyRequest().authenticated();
@@ -32,6 +33,7 @@ public class OAuth2ClientConfig {
         http.logout().logoutSuccessUrl("/");
 
         return http.build();
+
     }
 
 }

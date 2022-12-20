@@ -5,12 +5,19 @@ spring:
     oauth2:
       client:
         registration:
-
+          keycloak:
+            client-id: oauth2-client-app
+            client-secret: WYSyfEdtjIx1DTqlggyWVmtmJ1EVHnI0
+            client-name: test
+            authorization-grant-type: authorization_code
+            scope: openid,profile
+            client-authentication-method: client_secret_basic
+            redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
+            provider: keycloak
           google:
             client-id: 1049074281991-aaaddn94kitv13b8nhjnb8jfcvjfi1sm.apps.googleusercontent.com
             client-secret: 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
             scope: openid,profile,email
-
           naver:
             client-id: xqIenf_nLsNVbtLKpqPB
             client-secret: 6h9UvUJG9t
@@ -20,7 +27,13 @@ spring:
             scope: profile,email
 
         provider:
-
+          keycloak:
+            authorization-uri: http://localhost:9090/realms/oauth2/protocol/openid-connect/auth
+            token-uri: http://localhost:9090/realms/oauth2/protocol/openid-connect/token
+            issuer-uri: http://localhost:9090/realms/oauth2
+            user-info-uri: http://localhost:9090/realms/oauth2/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:9090/realms/oauth2/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
           naver:
             authorization-uri: https://nid.naver.com/oauth2.0/authorize
             token-uri: https://nid.naver.com/oauth2.0/token
