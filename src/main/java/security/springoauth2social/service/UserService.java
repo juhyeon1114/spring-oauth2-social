@@ -1,10 +1,9 @@
 package security.springoauth2social.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import security.springoauth2social.model.ProviderUser;
-import security.springoauth2social.model.User;
+import security.springoauth2social.model.users.User;
 import security.springoauth2social.repository.UserRepository;
 
 @Service

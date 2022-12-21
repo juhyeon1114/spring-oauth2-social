@@ -1,7 +1,7 @@
 package security.springoauth2social.repository;
 
 import org.springframework.stereotype.Repository;
-import security.springoauth2social.model.User;
+import security.springoauth2social.model.users.User;
 
 import java.util.HashMap;
 import java.util.Map;

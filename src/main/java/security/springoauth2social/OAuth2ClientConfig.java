@@ -48,6 +48,13 @@ public class OAuth2ClientConfig {
             });
         });
 
+        /**
+         * Form 로그인으로 로그인할 수 있도록
+         */
+//        http.formLogin().loginPage("/login").loginProcessingUrl("/loginProc").defaultSuccessUrl("/").permitAll();
+//        http.userDetailsService(use)
+        
+
         http.logout().logoutSuccessUrl("/");
 
         return http.build();

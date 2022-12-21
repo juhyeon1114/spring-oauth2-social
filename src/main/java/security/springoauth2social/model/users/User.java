@@ -1,4 +1,4 @@
-package security.springoauth2social.model;
+package security.springoauth2social.model.users;
 
 import lombok.Builder;
 import lombok.Data;
