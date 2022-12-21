@@ -1,7 +1,10 @@
 package security.springoauth2social.common.util;
 
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import security.springoauth2social.common.enums.OAuth2Config;
 import security.springoauth2social.model.Attributes;
+import security.springoauth2social.model.PrincipalUser;
 
 import java.util.Map;
 
@@ -28,6 +31,26 @@ public class OAuth2Utils {
                 .subAttributes(subAttributes)
                 .otherAttributes(otherAttributes)
                 .build();
+    }
+
+    public static String oAuth2UserName(OAuth2AuthenticationToken authenticationToken, PrincipalUser principalUser) {
+
+        String username;
+        String registrationId = authenticationToken.getAuthorizedClientRegistrationId();
+        OAuth2User oAuth2User = principalUser.providerUser().getOAuth2User();
+
+        // Google
+        Attributes attributes = OAuth2Utils.getMainAttributes(oAuth2User);
+        username = (String) attributes.getMainAttributes().get("name");
+
+        // Naver
+        if (registrationId.equals(OAuth2Config.SocialType.NAVER.getSocialName())) {
+            attributes = OAuth2Utils.getSubAttributes(oAuth2User, "response");
+            username = (String) attributes.getSubAttributes().get("name");
+        }
+
+        return username;
+
     }
 
 }

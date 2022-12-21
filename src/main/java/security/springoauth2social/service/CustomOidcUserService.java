@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Service;
 import security.springoauth2social.common.converters.ProviderUserRequest;
+import security.springoauth2social.model.PrincipalUser;
 import security.springoauth2social.model.ProviderUser;
 
 @Service
@@ -20,11 +21,9 @@ public class CustomOidcUserService extends AbstractOAuth2UserService implements 
         OidcUser oidcUser = oidcUserService.loadUser(userRequest);
 
         ProviderUserRequest providerUserRequest = new ProviderUserRequest(clientRegistration, oidcUser);
-
         ProviderUser providerUser = providerUser(providerUserRequest);
-
         super.register(providerUser, userRequest); // 회원가입
 
-        return oidcUser;
+        return new PrincipalUser(providerUser);
     }
 }
