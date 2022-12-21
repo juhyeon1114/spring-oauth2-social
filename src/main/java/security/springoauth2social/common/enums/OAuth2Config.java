@@ -1,4 +1,4 @@
-package security.springoauth2social.enums;
+package security.springoauth2social.common.enums;
 
 public class OAuth2Config {
 

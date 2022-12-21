@@ -1,4 +1,4 @@
-package security.springoauth2social.converters;
+package security.springoauth2social.common.converters;
 
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.core.user.OAuth2User;

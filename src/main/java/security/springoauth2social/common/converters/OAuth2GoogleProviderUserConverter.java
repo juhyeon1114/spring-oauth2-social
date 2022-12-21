@@ -1,10 +1,10 @@
-package security.springoauth2social.converters;
+package security.springoauth2social.common.converters;
 
 import lombok.extern.slf4j.Slf4j;
-import security.springoauth2social.enums.OAuth2Config;
+import security.springoauth2social.common.enums.OAuth2Config;
 import security.springoauth2social.model.ProviderUser;
 import security.springoauth2social.model.social.GoogleUser;
-import security.springoauth2social.util.OAuth2Utils;
+import security.springoauth2social.common.util.OAuth2Utils;
 
 @Slf4j
 public class OAuth2GoogleProviderUserConverter implements ProviderUserConverter<ProviderUserRequest, ProviderUser> {

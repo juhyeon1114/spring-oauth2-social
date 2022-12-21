@@ -1,13 +1,12 @@
 package security.springoauth2social.service;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.stereotype.Service;
-import security.springoauth2social.converters.ProviderUserConverter;
-import security.springoauth2social.converters.ProviderUserRequest;
+import security.springoauth2social.common.converters.ProviderUserConverter;
+import security.springoauth2social.common.converters.ProviderUserRequest;
 import security.springoauth2social.model.*;
 import security.springoauth2social.model.users.User;
 import security.springoauth2social.repository.UserRepository;

@@ -7,7 +7,7 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
-import security.springoauth2social.converters.ProviderUserRequest;
+import security.springoauth2social.common.converters.ProviderUserRequest;
 import security.springoauth2social.model.ProviderUser;
 
 @Service

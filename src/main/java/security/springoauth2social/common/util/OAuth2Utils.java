@@ -1,4 +1,4 @@
-package security.springoauth2social.util;
+package security.springoauth2social.common.util;
 
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import security.springoauth2social.model.Attributes;

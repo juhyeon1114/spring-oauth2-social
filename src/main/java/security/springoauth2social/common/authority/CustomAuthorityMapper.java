@@ -1,4 +1,4 @@
-package security.springoauth2social;
+package security.springoauth2social.common.authority;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

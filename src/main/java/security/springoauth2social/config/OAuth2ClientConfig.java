@@ -1,12 +1,12 @@
-package security.springoauth2social;
+package security.springoauth2social.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMapper;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import security.springoauth2social.service.CustomOAuth2UserService;
 import security.springoauth2social.service.CustomOidcUserService;
 
@@ -51,22 +51,18 @@ public class OAuth2ClientConfig {
         /**
          * Form 로그인으로 로그인할 수 있도록
          */
-//        http.formLogin().loginPage("/login").loginProcessingUrl("/loginProc").defaultSuccessUrl("/").permitAll();
-//        http.userDetailsService(use)
-        
+        http.formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/loginProc")
+                .defaultSuccessUrl("/")
+                .permitAll();
+
+        http.exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"));
 
         http.logout().logoutSuccessUrl("/");
 
         return http.build();
 
-    }
-
-    /**
-     * 구글은 권한 값이 이상하게 넘어와서 그것을 매핑하기 위한 Custom
-     */
-    @Bean
-    public GrantedAuthoritiesMapper customAuthorityMapper() {
-        return new CustomAuthorityMapper();
     }
 
 
